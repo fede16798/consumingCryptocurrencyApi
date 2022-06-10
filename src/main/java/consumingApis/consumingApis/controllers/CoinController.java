@@ -1,9 +1,6 @@
 package consumingApis.consumingApis.controllers;
 
-import consumingApis.consumingApis.comunication.CoinsWrapperDTO;
-import consumingApis.consumingApis.comunication.DominanceWrapperDTO;
-import consumingApis.consumingApis.comunication.ExternalComunication;
-import consumingApis.consumingApis.comunication.SimpleCoinWrapperDTO;
+import consumingApis.consumingApis.comunication.*;
 import consumingApis.consumingApis.dto.PingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +33,10 @@ public class CoinController {
     @GetMapping("/dominance")
     public ResponseEntity<DominanceWrapperDTO> getDominance () {
         return ResponseEntity.ok().body(externalComunication.getDominance());
+    }
+
+    @GetMapping("/trending")
+    public ResponseEntity<TrendingWrapperDTO> getTrending() {
+        return ResponseEntity.ok().body(externalComunication.getTrending());
     }
 }

@@ -31,4 +31,9 @@ public class ExternalComunication {
         DominanceWrapperDTO response = restTemplate.getForObject(URL + "global", DominanceWrapperDTO.class);
         return response;
     }
+
+    public TrendingWrapperDTO getTrending() {
+        TrendingWrapperDTO response = restTemplate.getForObject(URL + "search/trending", TrendingWrapperDTO.class);
+        return response;
+    }
 }
