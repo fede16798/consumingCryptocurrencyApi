@@ -1,6 +1,7 @@
 package consumingApis.consumingApis.controllers;
 
 import consumingApis.consumingApis.comunication.CoinsWrapperDTO;
+import consumingApis.consumingApis.comunication.DominanceWrapperDTO;
 import consumingApis.consumingApis.comunication.ExternalComunication;
 import consumingApis.consumingApis.comunication.SimpleCoinWrapperDTO;
 import consumingApis.consumingApis.dto.PingDTO;
@@ -30,5 +31,10 @@ public class CoinController {
     @GetMapping("/bitcoin/price")
     public ResponseEntity<SimpleCoinWrapperDTO> getBitcoinPrice (@RequestParam String coin, @RequestParam String currency) {
         return ResponseEntity.ok().body(externalComunication.getPrice(coin, currency));
+    }
+
+    @GetMapping("/dominance")
+    public ResponseEntity<DominanceWrapperDTO> getDominance () {
+        return ResponseEntity.ok().body(externalComunication.getDominance());
     }
 }

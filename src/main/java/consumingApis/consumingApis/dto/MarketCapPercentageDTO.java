@@ -6,10 +6,8 @@ import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor
-public class CoinDTO {
-
-    private String id;
-    private String name;
-    private String symbol;
-    private Integer market_cap_rank;
+public class MarketCapPercentageDTO {
+    private Integer btc;
+    private Integer eth;
+    private Integer bnb;
 }

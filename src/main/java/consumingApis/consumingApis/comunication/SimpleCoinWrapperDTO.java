@@ -6,5 +6,5 @@ import lombok.Setter;
 
 @Setter @Getter
 public class SimpleCoinWrapperDTO {
-    private SimpleCoinDTO bitcoin;
+    private SimpleCoinDTO name;
 }

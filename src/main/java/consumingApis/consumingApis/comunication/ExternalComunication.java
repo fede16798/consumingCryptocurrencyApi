@@ -26,4 +26,9 @@ public class ExternalComunication {
         SimpleCoinWrapperDTO response = restTemplate.getForObject(URL + "/simple/price?ids="+coin+"&vs_currencies=" + currency, SimpleCoinWrapperDTO.class);
         return response;
     }
+
+    public DominanceWrapperDTO getDominance () {
+        DominanceWrapperDTO response = restTemplate.getForObject(URL + "global", DominanceWrapperDTO.class);
+        return response;
+    }
 }
