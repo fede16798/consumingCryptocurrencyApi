@@ -12,6 +12,12 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class RestExceptionHandler {
 
+    @ExceptionHandler({InvalidCoinOrCurrency.class})
+    public ResponseEntity<Object> invalidCoinOrCurrency (InvalidCoinOrCurrency ex, WebRequest request) {
+        ApiErrorResponse apiErrorResponse = new ApiErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now(), request.getDescription(false));
+        return new ResponseEntity(apiErrorResponse, apiErrorResponse.getStatus());
+    }
+
     @ExceptionHandler({MissingServletRequestParameterException.class})
     public ResponseEntity<Object> missingServletRequestParameterException (MissingServletRequestParameterException ex, WebRequest request) {
         ApiErrorResponse apiErrorResponse = new ApiErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now(), request.getDescription(false));

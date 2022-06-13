@@ -2,6 +2,7 @@ package consumingApis.consumingApis.controllers;
 
 import consumingApis.consumingApis.comunication.*;
 import consumingApis.consumingApis.dto.PingDTO;
+import consumingApis.consumingApis.exception.InvalidCoinOrCurrency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class CoinController {
     }
 
     @GetMapping("/bitcoin/price")
-    public ResponseEntity<SimpleCoinWrapperDTO> getBitcoinPrice (@RequestParam String coin, @RequestParam String currency) {
+    public ResponseEntity<SimpleCoinWrapperDTO> getBitcoinPrice (@RequestParam String coin, @RequestParam String currency) throws InvalidCoinOrCurrency {
         return ResponseEntity.ok().body(externalComunication.getPrice(coin, currency));
     }
 
