@@ -1,4 +1,4 @@
-package consumingApis.consumingApis.comunication;
+package consumingApis.consumingApis.comunication.Wrappers;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import consumingApis.consumingApis.dto.SimpleCoinDTO;

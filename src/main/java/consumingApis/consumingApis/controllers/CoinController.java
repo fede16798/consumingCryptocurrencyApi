@@ -1,6 +1,11 @@
 package consumingApis.consumingApis.controllers;
 
 import consumingApis.consumingApis.comunication.*;
+import consumingApis.consumingApis.comunication.Wrappers.CoinsWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.DominanceWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.SimpleCoinWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.TrendingWrapperDTO;
+import consumingApis.consumingApis.dto.BlockchainsDTO;
 import consumingApis.consumingApis.dto.PingDTO;
 import consumingApis.consumingApis.exception.InvalidCoinOrCurrency;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +31,7 @@ public class CoinController {
         return ResponseEntity.ok().body(externalComunication.getPing());
     }
 
-    @GetMapping("/bitcoin/price")
+    @GetMapping("/price")
     public ResponseEntity<SimpleCoinWrapperDTO> getBitcoinPrice (@RequestParam String coin, @RequestParam String currency) throws InvalidCoinOrCurrency {
         return ResponseEntity.ok().body(externalComunication.getPrice(coin, currency));
     }
@@ -39,5 +44,10 @@ public class CoinController {
     @GetMapping("/trending")
     public ResponseEntity<TrendingWrapperDTO> getTrending() {
         return ResponseEntity.ok().body(externalComunication.getTrending());
+    }
+
+    @GetMapping("/blockchains")
+    public ResponseEntity<BlockchainsDTO[]> getBlockchains () {
+        return ResponseEntity.ok().body(externalComunication.getBlockchains());
     }
 }

@@ -1,20 +1,20 @@
 package consumingApis.consumingApis.comunication;
 
+import consumingApis.consumingApis.comunication.Wrappers.CoinsWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.DominanceWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.SimpleCoinWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.TrendingWrapperDTO;
+import consumingApis.consumingApis.dto.BlockchainsDTO;
 import consumingApis.consumingApis.dto.PingDTO;
 import consumingApis.consumingApis.dto.SimpleCoinDTO;
 import consumingApis.consumingApis.exception.InvalidCoinOrCurrency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class ExternalComunication {
@@ -34,7 +34,7 @@ public class ExternalComunication {
     }
 
     public SimpleCoinWrapperDTO getPrice(String coin, String currency) throws InvalidCoinOrCurrency{
-        System.out.println(isInvalidCoinOrCurrency(coin, currency));
+        ParameterizedTypeReference<Map<String, String>> typeRef = new ParameterizedTypeReference<Map<String, String>>() {};
         if (!isInvalidCoinOrCurrency(coin, currency)) {
             throw new InvalidCoinOrCurrency("Invalid Coin or Currency");
         }
@@ -52,6 +52,11 @@ public class ExternalComunication {
         return response;
     }
 
+    public BlockchainsDTO[] getBlockchains() {
+        ResponseEntity<BlockchainsDTO[]> response = restTemplate.getForEntity(URL + "/asset_platforms", BlockchainsDTO[].class);
+        return response.getBody();
+    }
+
     private boolean isInvalidCoinOrCurrency (String coin, String currency){
        /* for (Field field : SimpleCoinWrapperDTO.class.getDeclaredFields()) {
             System.out.println(field.getName().equals(coin));
@@ -63,4 +68,6 @@ public class ExternalComunication {
                 .anyMatch(field -> field.getName().equals(currency));
         return (!existsCoin || !existsCurrency) ? false : true;
     }
+
+
 }

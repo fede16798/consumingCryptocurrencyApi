@@ -1,8 +1,7 @@
 package consumingApis.consumingApis.exception;
 
-import consumingApis.consumingApis.comunication.SimpleCoinWrapperDTO;
+import consumingApis.consumingApis.comunication.Wrappers.SimpleCoinWrapperDTO;
 import consumingApis.consumingApis.dto.SimpleCoinDTO;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

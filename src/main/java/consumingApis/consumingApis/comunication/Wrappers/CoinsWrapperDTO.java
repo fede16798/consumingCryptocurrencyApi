@@ -1,4 +1,4 @@
-package consumingApis.consumingApis.comunication;
+package consumingApis.consumingApis.comunication.Wrappers;
 import consumingApis.consumingApis.dto.CoinDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

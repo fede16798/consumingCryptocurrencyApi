@@ -1,4 +1,4 @@
-package consumingApis.consumingApis.comunication;
+package consumingApis.consumingApis.comunication.Wrappers;
 
 import consumingApis.consumingApis.dto.DominanceDTO;
 import lombok.Getter;
