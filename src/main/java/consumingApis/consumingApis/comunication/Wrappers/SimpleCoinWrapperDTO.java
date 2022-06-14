@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SimpleCoinWrapperDTO {
+
     SimpleCoinDTO bitcoin;
     SimpleCoinDTO ethereum;
     SimpleCoinDTO dogecoin;
@@ -15,5 +16,5 @@ public class SimpleCoinWrapperDTO {
     SimpleCoinDTO solana;
     SimpleCoinDTO chiliz;
     SimpleCoinDTO decentraland;
-
+    SimpleCoinDTO polkadot;
 }
