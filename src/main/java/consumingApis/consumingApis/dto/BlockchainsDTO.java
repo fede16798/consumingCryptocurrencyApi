@@ -1,15 +1,16 @@
 package consumingApis.consumingApis.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor
-public class CoinDTO {
-
+@AllArgsConstructor
+public class BlockchainsDTO {
     private String id;
+    private String chan_identifier;
     private String name;
-    private String symbol;
-    private Integer market_cap_rank;
+    private String shortname;
 }
